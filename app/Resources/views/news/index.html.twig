@@ -1,1 +1,48 @@
-<h1>hshh</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>News list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <td><a href="{{ path('news_show', { 'id': news.id }) }}">{{ news.id }}</a></td>
+                <td>{{ news.title }}</td>
+                <td>{{ news.body }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('news_show', { 'id': news.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('news_edit', { 'id': news.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    {{ knp_pagination_render(news) }}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('news_new') }}">Create a new news</a>
+        </li>
+    </ul>
+{% endblock %}
