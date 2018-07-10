@@ -76,6 +76,10 @@ fos_user:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
 
+    registration:
+        form:
+            type: AppBundle\Form\Type\RegType  # cannot use alias
+
 knp_paginator:
     template:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'
