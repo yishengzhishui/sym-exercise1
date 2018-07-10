@@ -10,19 +10,13 @@ class RegType extends RegistrationFormType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('captcha', CaptchaType::class, array(
-            'mapped' => false,
-        ));
+        parent::buildForm($builder, $options);
+
+        $builder->add('captcha', CaptchaType::class);
     }
 
-    public function getParent()
+    public function getName()
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        return 'app_reg';
     }
-
-    public function getBlockPrefix()
-    {
-        return 'app_user_registration';
-    }
-
 }

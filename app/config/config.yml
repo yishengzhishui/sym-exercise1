@@ -83,3 +83,8 @@ fos_user:
 knp_paginator:
     template:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'
+
+gregwar_captcha:
+    width: 200
+    height: 50
+    length: 6
