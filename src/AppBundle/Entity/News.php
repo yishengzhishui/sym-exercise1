@@ -35,6 +35,11 @@ class News
      */
     private $body;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="news")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * Get id
